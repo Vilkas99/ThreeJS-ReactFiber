@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useRef } from "react";
+import { Canvas, useFrame } from "react-three-fiber";
+import { OrbitControls } from "@react-three/drei";
+import Puntos from "./componentes/Three/puntos";
+import Efectos from "./componentes/Three/efectos";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Canvas colorManagement={false} orthographic camera={{ zoom: 20 }}>
+      <color attach="background" args={["black"]} />
+      <OrbitControls />
+      <Efectos />
+      <Puntos />
+    </Canvas>
   );
 }
-
-export default App;
